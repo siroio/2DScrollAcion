@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IPlayer, IDamageable
+public class Player : MonoBehaviour, IPlayer
 {
     public uint Health { get => m_Health; }
 
@@ -37,5 +37,10 @@ public class Player : MonoBehaviour, IPlayer, IDamageable
     public void TakeDamage(uint damage)
     {
         m_Health = Math.Min(0, Health - Math.Clamp(damage, 0, 3));
+    }
+
+    public void Heal(uint value)
+    {
+        m_Health = Math.Min(3, m_Health + Math.Clamp(value, 0, 1));
     }
 }
