@@ -16,6 +16,13 @@ public static class Vector3Util
         return normalized ? (to - from).normalized : (to - from);
     }
 
+    public static bool InBounds(this Vector3 vector, Vector3 minBounds, Vector3 maxBounds)
+    {
+        return vector.x >= minBounds.x && vector.x <= maxBounds.x &&
+                vector.y >= minBounds.y && vector.y <= maxBounds.y &&
+                vector.z >= minBounds.z && vector.z <= maxBounds.z;
+    }
+
     /// <summary>
     /// Vector3からXYZのみをコピーしてTupleで返す
     /// var (x, y, z) = Vector3Util.toXYZ(self);
