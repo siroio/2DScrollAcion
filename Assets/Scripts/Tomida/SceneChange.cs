@@ -8,7 +8,7 @@ public class SceneChange : MonoBehaviour
     //ゲームスタート
     public void GameStart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("PlayScene");
     }
     //ゲーム終了
     public void EndGame()
