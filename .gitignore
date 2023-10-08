@@ -40,3 +40,4 @@ UnityCrashHandler64.exe
 UnityPlayer.dll
 Mono/
 *_Data/
+.vscode/
