@@ -1,15 +1,11 @@
+using UnityEngine;
+using UnityEngine.Events;
+
 public interface IPlayer
 {
+    /// <summary>
+    /// 体力
+    /// </summary>
+    /// <value>0 ~ 3</value>
     public uint Health { get; }
-    public uint Speed { get; }
-
-    /// <summary>
-    /// 移動時
-    /// </summary>
-    void OnMove();
-
-    /// <summary>
-    /// ビートのタイミング
-    /// </summary>
-    void OnBeat();
 }
