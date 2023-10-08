@@ -24,6 +24,14 @@ public class Player : MonoBehaviour, IPlayer, IDamageable
         {
             m_rigidbody.position += Vector2.down;
         }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            m_rigidbody.position += Vector2.left;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            m_rigidbody.position += Vector2.right;
+        }
     }
 
     public void TakeDamage(uint damage)
