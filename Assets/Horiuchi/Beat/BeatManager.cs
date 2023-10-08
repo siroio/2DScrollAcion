@@ -1,32 +1,42 @@
 using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BeatManager : Singleton<BeatManager>
 {
-    public uint BPM { get; }
-    public UnityEvent OnBeat { get; set; }
+    public int BPM { get => m_BPM.Value; }
+    public UnityEvent OnBeat { get => m_onBeat; set => m_onBeat = value; }
 
     [SerializeField]
-    private UnityEvent m_OnBeat;
+    private UnityEvent m_onBeat;
 
-    [SerializeField, Tooltip("曲のBPM")]
-    private uint m_BPM;
+    [SerializeField, Label("曲のBPM")]
+    private IntReactiveProperty m_BPM;
 
-    private float timer = 0.0f;
+    private float m_timer = 0.0f;
+    private float m_bps;
+
+    private void Start()
+    {
+        m_BPM.Subscribe((bpm) =>
+        {
+            m_bps = ToSeconds(bpm);
+        });
+    }
 
     private void Update()
     {
-        if (timer >= ToSeconds(m_BPM))
+        if (m_timer >= m_bps)
         {
-            timer = 0;
-            m_OnBeat?.Invoke();
+            m_timer = 0;
+            m_onBeat?.Invoke();
         }
 
-        timer += Time.deltaTime;
+        m_timer += Time.deltaTime;
     }
 
-    float ToSeconds(uint BPM)
+    private float ToSeconds(int BPM)
     {
         return (float)1 / (BPM / 60);
     }

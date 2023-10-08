@@ -1,11 +1,12 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Player : MonoBehaviour, IPlayer, IDamageable
 {
-    public uint Health { get; private set; }
+    public uint Health { get => m_Health; }
+
+    [SerializeField, Label("体力")]
+    private uint m_Health;
     private Rigidbody2D m_rigidbody;
 
     private void Start()
@@ -25,13 +26,8 @@ public class Player : MonoBehaviour, IPlayer, IDamageable
         }
     }
 
-    public void DoScale()
-    {
-        transform.DOPunchScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f, 1);
-    }
-
     public void TakeDamage(uint damage)
     {
-        Health = Math.Min(0, Health - damage);
+        m_Health = Math.Min(0, Health - Math.Clamp(damage, 0, 3));
     }
 }
