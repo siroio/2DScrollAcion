@@ -25,6 +25,11 @@ public class Player : MonoBehaviour, IPlayer, IDamageable
         }
     }
 
+    public void DoScale()
+    {
+        transform.DOPunchScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f, 1);
+    }
+
     public void TakeDamage(uint damage)
     {
         Health = Math.Min(0, Health - damage);
