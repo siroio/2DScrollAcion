@@ -17,6 +17,17 @@ public class BeatManager : Singleton<BeatManager>
 
     private void Update()
     {
+        if (timer >= ToSeconds(m_BPM))
+        {
+            timer = 0;
+            m_OnBeat?.Invoke();
+        }
 
+        timer += Time.deltaTime;
+    }
+
+    float ToSeconds(uint BPM)
+    {
+        return (float)1 / (BPM / 60);
     }
 }
