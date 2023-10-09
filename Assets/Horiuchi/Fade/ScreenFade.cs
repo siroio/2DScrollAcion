@@ -38,6 +38,7 @@ public class ScreenFade : MonoBehaviour
         StartFade(m_fadeType);
     }
 
+    public void StartFade() => StartFade(m_fadeType, m_duration, m_delay);
     public void StartFade(FadeType type) => StartFade(type, m_duration, m_delay);
     public void StartFade(FadeType type, float duration, float delay, TweenCallback complete = null)
     {
