@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Testdamge : MonoBehaviour
+public class damgewall : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D other)
     {
