@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 15537779}
   - component: {fileID: 15537781}
   - component: {fileID: 15537780}
+  - component: {fileID: 15537782}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -257,6 +258,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15537778}
   m_CullTransparentMesh: 1
+--- !u!114 &15537782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15537778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f00e68a1e0e5846a3e685e158f1c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 11400000, guid: f382cb2d76a0a454bbde63f13e94515e, type: 2}
 --- !u!1 &277499619
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc2081ceb709ff342a33bc77d97f10e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b32ae96955aebfa448f96ac10b1f6330, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -757,7 +771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc2081ceb709ff342a33bc77d97f10e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b32ae96955aebfa448f96ac10b1f6330, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1032,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc2081ceb709ff342a33bc77d97f10e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b32ae96955aebfa448f96ac10b1f6330, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1368,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 5801067513091877331, guid: 3b7633f5380fc7d4daf7cd5dfa645434, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cc2081ceb709ff342a33bc77d97f10e1, type: 3}
+      objectReference: {fileID: 21300000, guid: c8d686399a187264595c773bd2d7f243, type: 3}
     - target: {fileID: 6171883014727920913, guid: 3b7633f5380fc7d4daf7cd5dfa645434, type: 3}
       propertyPath: m_Name
       value: RhythmBar
