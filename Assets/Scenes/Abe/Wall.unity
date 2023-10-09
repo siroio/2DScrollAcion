@@ -336,6 +336,10 @@ MonoBehaviour:
   m_onBeat:
     m_PersistentCalls:
       m_Calls: []
+  m_onStartMusic:
+    m_PersistentCalls:
+      m_Calls: []
+  m_startDelay: 0
   m_BPM:
     value: 120
 --- !u!4 &1565400121
