@@ -32,8 +32,6 @@ public class BeatManager : Singleton<BeatManager>
         m_BPM.ObserveEveryValueChanged(bpm => bpm.Value)
         .Subscribe(bpm => m_bps = ToSeconds(bpm))
         .AddTo(this);
-
-        m_BPM.Value = UniBpmAnalyzer.AnalyzeBpm(Camera.main.GetComponent<AudioSource>().clip);
         //TODO: タイミング調整
         StartCoroutine(StartDelay());
     }
