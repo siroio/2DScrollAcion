@@ -18,6 +18,6 @@ public class ScoreUI : MonoBehaviour
 
     void Update()
     {
-        meshPro.text = Score.Score.ToString("000000");
+        meshPro.text = Score.Score.ToString();
     }
 }
