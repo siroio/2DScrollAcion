@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    public void OnGameStartButtonClicked()
+    {
+        Invoke("GameStart", 1);
+    }
+    public void OnEndGameButtonClicked()
+    {
+        Invoke("EndGame", 1);
+    }
+    public void OnBackToTitleButtonClicked()
+    {
+        Invoke("BackToTitle", 1);
+    }
+
     //ゲームスタート
     public void GameStart()
     {
