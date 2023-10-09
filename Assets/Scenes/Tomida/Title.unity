@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroyEnabled: 1
-  SelectSE: {fileID: 8300000, guid: 34e7d87a670189244bb8cbc8e92496f5, type: 3}
+  SelectSE: {fileID: 8300000, guid: 7ca0cb82670736c40976d06c16511271, type: 3}
 --- !u!82 &1863054814
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1357,7 +1357,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 34e7d87a670189244bb8cbc8e92496f5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7ca0cb82670736c40976d06c16511271, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
