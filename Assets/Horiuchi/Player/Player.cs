@@ -113,6 +113,7 @@ public class Player : MonoBehaviour, IPlayer
     {
         if (isDamaged) return;
         damage = Math.Clamp(damage, 0, 3);
+        m_invincibleTimer = 0;
         isDamaged = true;
         m_Health = Math.Max(0, m_Health - damage);
         m_onTakeDamage?.Invoke();
