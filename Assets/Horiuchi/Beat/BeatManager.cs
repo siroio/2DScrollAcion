@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,9 +9,16 @@ public class BeatManager : Singleton<BeatManager>
     public int BPM => m_BPM.Value;
     public float BPS => m_bps;
     public UnityEvent OnBeat { get => m_onBeat; set => m_onBeat = value; }
+    public UnityEvent OnStartMusic { get => m_onBeat; set => m_onBeat = value; }
 
     [SerializeField]
     private UnityEvent m_onBeat;
+
+    [SerializeField]
+    private UnityEvent m_onStartMusic;
+
+    [SerializeField, Label("ディレイ")]
+    private float m_startDelay;
 
     [SerializeField, Label("曲のBPM")]
     private IntReactiveProperty m_BPM;
@@ -26,6 +34,12 @@ public class BeatManager : Singleton<BeatManager>
         .AddTo(this);
 
         //TODO: タイミング調整
+        StartCoroutine(StartDelay());
+    }
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(m_startDelay);
         StartBeatCount();
     }
 
