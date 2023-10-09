@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,7 +17,10 @@ public class Player : MonoBehaviour, IPlayer
 
     [SerializeField, Label("操作可能時間")]
     [Tooltip("BPMによる操作可能時間を秒数で指定")]
-    private float duration;
+    private float m_duration;
+
+    [SerializeField, Label("移動にかかる時間")]
+    private float m_moveDuration;
 
     [SerializeField, Label("移動時コールバック")]
     private UnityEvent m_moveEvent;
@@ -26,15 +30,18 @@ public class Player : MonoBehaviour, IPlayer
     [SerializeField, Label("回復時コールバック")]
     private UnityEvent m_onHeal;
 
+    [SerializeField, Label("移動補完方法")]
+    private Ease m_moveEase;
+    private Tween m_moveTween;
     private float moveTimer;
     private bool isMove;
-    private Rigidbody2D m_rigidbody;
+    private Transform m_transform;
     private BeatManager m_beatManager;
 
     private void Start()
     {
-        TryGetComponent(out m_rigidbody);
         m_beatManager = FindAnyObjectByType<BeatManager>();
+        TryGetComponent(out m_transform);
         m_beatManager.OnBeat.AddListener(ResetTimer);
     }
 
@@ -46,7 +53,7 @@ public class Player : MonoBehaviour, IPlayer
     private void Update()
     {
         moveTimer += Time.deltaTime;
-        if (moveTimer >= duration || isMove) return;
+        if (moveTimer >= m_duration || isMove) return;
         OnMove();
     }
 
@@ -61,22 +68,26 @@ public class Player : MonoBehaviour, IPlayer
         if (Input.GetKey(KeyCode.UpArrow))
         {
             isMove = true;
-            m_rigidbody.position += Vector2.up;
+            m_transform.DOMove(m_transform.position + Vector3.up, m_moveDuration)
+                .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             isMove = true;
-            m_rigidbody.position += Vector2.down;
+            m_transform.DOMove(m_transform.position + Vector3.down, m_moveDuration)
+                .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             isMove = true;
-            m_rigidbody.position += Vector2.left;
+            m_transform.DOMove(m_transform.position + Vector3.left, m_moveDuration)
+                .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             isMove = true;
-            m_rigidbody.position += Vector2.right;
+            m_transform.DOMove(m_transform.position + Vector3.right, m_moveDuration)
+                .SetEase(m_moveEase);
         }
         if (isMove) m_moveEvent?.Invoke();
     }
@@ -84,7 +95,7 @@ public class Player : MonoBehaviour, IPlayer
     public void TakeDamage(uint damage)
     {
         damage = Math.Clamp(damage, 0, 3);
-        if (Health > Health - damage) return;
+        if (Health <= (Health - damage)) return;
         m_onTakeDamage?.Invoke();
         m_Health = damage;
     }

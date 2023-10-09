@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class BeatManager : Singleton<BeatManager>
 {
-    public int BPM { get => m_BPM.Value; }
+    public int BPM => m_BPM.Value;
+    public float BPS => m_bps;
     public UnityEvent OnBeat { get => m_onBeat; set => m_onBeat = value; }
 
     [SerializeField]
