@@ -483,6 +483,103 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &595602336
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838606166984860768, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077918152517147404, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_Name
+      value: BackGroundMovie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 9669398cbc902054aab6ad53abab2141, type: 3}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 1779318352}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313521082347534772, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e652f8c85be6f5f4bbd5ca8bfbc4a375, type: 3}
 --- !u!1 &866693584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,3 +1448,4 @@ SceneRoots:
   - {fileID: 307390363}
   - {fileID: 1666874870}
   - {fileID: 1707053101}
+  - {fileID: 595602336}
