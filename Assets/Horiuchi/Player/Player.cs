@@ -6,14 +6,21 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour, IPlayer
 {
     public uint Health => m_Health;
+    public float InvincibleTime => m_invincibleTime;
     public UnityEvent MoveEvent => m_moveEvent;
 
     public UnityEvent OnTakeDamage => m_onTakeDamage;
 
     public UnityEvent OnHeal => m_onHeal;
 
+    public UnityEvent OnDeath => m_onDeath;
+
+
     [SerializeField, Label("体力")]
     private uint m_Health;
+
+    [SerializeField, Label("無敵時間")]
+    private float m_invincibleTime;
 
     [SerializeField, Label("操作可能時間")]
     [Tooltip("BPMによる操作可能時間を秒数で指定")]
@@ -22,19 +29,23 @@ public class Player : MonoBehaviour, IPlayer
     [SerializeField, Label("移動にかかる時間")]
     private float m_moveDuration;
 
-    [SerializeField, Label("移動時コールバック")]
+    [SerializeField, Tooltip("移動時コールバック")]
     private UnityEvent m_moveEvent;
 
-    [SerializeField, Label("被ダメージ時コールバック")]
+    [SerializeField, Tooltip("被ダメージ時コールバック")]
     private UnityEvent m_onTakeDamage;
-    [SerializeField, Label("回復時コールバック")]
+    [SerializeField, Tooltip("回復時コールバック")]
     private UnityEvent m_onHeal;
+
+    [SerializeField, Tooltip("死亡時コールバック")]
+    private UnityEvent m_onDeath;
 
     [SerializeField, Label("移動補完方法")]
     private Ease m_moveEase;
-    private Tween m_moveTween;
-    private float moveTimer;
+    private float m_moveTimer;
+    private float m_invincibleTimer;
     private bool isMove;
+    private bool isDamaged;
     private Transform m_transform;
     private BeatManager m_beatManager;
 
@@ -52,15 +63,17 @@ public class Player : MonoBehaviour, IPlayer
 
     private void Update()
     {
-        moveTimer += Time.deltaTime;
-        if (moveTimer >= m_duration || isMove) return;
+        m_moveTimer += Time.deltaTime;
+        m_invincibleTimer += Time.deltaTime;
+        if (m_invincibleTimer >= m_invincibleTime) isDamaged = false;
+        if (m_moveTimer >= m_duration || isMove) return;
         OnMove();
     }
 
     private void ResetTimer()
     {
         isMove = false;
-        moveTimer = 0;
+        m_moveTimer = 0;
     }
 
     private void OnMove()
@@ -68,25 +81,29 @@ public class Player : MonoBehaviour, IPlayer
         if (Input.GetKey(KeyCode.UpArrow))
         {
             isMove = true;
-            m_transform.DOMove(m_transform.position + Vector3.up, m_moveDuration)
+            m_transform.DOMove(Vector3.up, m_moveDuration)
+                .SetRelative(true)
                 .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             isMove = true;
-            m_transform.DOMove(m_transform.position + Vector3.down, m_moveDuration)
+            m_transform.DOMove(Vector3.down, m_moveDuration)
+                .SetRelative(true)
                 .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             isMove = true;
-            m_transform.DOMove(m_transform.position + Vector3.left, m_moveDuration)
+            m_transform.DOMove(Vector3.left, m_moveDuration)
+                .SetRelative(true)
                 .SetEase(m_moveEase);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             isMove = true;
-            m_transform.DOMove(m_transform.position + Vector3.right, m_moveDuration)
+            m_transform.DOMove(Vector3.right, m_moveDuration)
+                .SetRelative(true)
                 .SetEase(m_moveEase);
         }
         if (isMove) m_moveEvent?.Invoke();
@@ -94,10 +111,12 @@ public class Player : MonoBehaviour, IPlayer
 
     public void TakeDamage(uint damage)
     {
+        if (isDamaged) return;
         damage = Math.Clamp(damage, 0, 3);
-        if (Health <= (Health - damage)) return;
+        isDamaged = true;
+        m_Health = Math.Max(0, m_Health - damage);
         m_onTakeDamage?.Invoke();
-        m_Health = damage;
+        if (m_Health <= 0) m_onDeath?.Invoke();
     }
 
     public void Heal(uint value)
