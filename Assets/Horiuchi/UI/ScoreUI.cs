@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
-    private TextMeshPro meshPro;
+    private TextMeshProUGUI meshPro;
 
     [SerializeField]
     private ScoreSO Score;
 
     private void Start()
     {
-        meshPro = GetComponent<TextMeshPro>();
+        meshPro = GetComponent<TextMeshProUGUI>();
     }
 
     void Update()

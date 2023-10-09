@@ -11,6 +11,7 @@ public class WallScore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player")) return;
         if (ishit) return;
         ishit = true;
         score.Score += 100;
