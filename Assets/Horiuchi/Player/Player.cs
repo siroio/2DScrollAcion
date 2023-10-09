@@ -54,6 +54,7 @@ public class Player : MonoBehaviour, IPlayer
         m_beatManager = FindAnyObjectByType<BeatManager>();
         TryGetComponent(out m_transform);
         m_beatManager.OnBeat.AddListener(ResetTimer);
+        m_onDeath.AddListener(() => SceneLoader.LoadSceneAsync("GameOver"));
     }
 
     private void OnDestroy()
